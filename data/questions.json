@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "Q001",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Presión de aceite",
+    "difficulty": "easy",
+    "prompt": "Mientras conduces se enciende la luz roja de presión de aceite. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Continuar hasta la próxima estación de servicio.",
+        "feedback": "Seguir conduciendo puede provocar averías graves en el motor."
+      },
+      {
+        "id": "B",
+        "text": "Detener el motor de inmediato y no volver a ponerlo en marcha hasta repararlo.",
+        "feedback": "Es la acción indicada por el libro oficial."
+      },
+      {
+        "id": "C",
+        "text": "Acelerar para que el aceite circule con más presión.",
+        "feedback": "Acelerar no corrige una falla de lubricación y puede agravarla."
+      },
+      {
+        "id": "D",
+        "text": "Apagar solo el aire acondicionado.",
+        "feedback": "El aire acondicionado no resuelve una advertencia de presión de aceite."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "La luz de presión de aceite indica que el motor no está siendo lubricado correctamente o que el nivel es bajo. El libro indica detener el motor de inmediato y no ponerlo en marcha hasta reparar la falla.",
+    "tip": "Una luz roja del tablero exige atención inmediata: no la trates como una simple advertencia.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "El sistema de lubricación",
+      "page": 12
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q002",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Combustible",
+    "difficulty": "easy",
+    "prompt": "Sientes un fuerte olor a gasolina mientras conduces. ¿Cuál es la respuesta más segura?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Abrir las ventanas y seguir conduciendo.",
+        "feedback": "Ventilar no elimina el posible riesgo de fuga e incendio."
+      },
+      {
+        "id": "B",
+        "text": "Detenerte e investigar la causa del problema.",
+        "feedback": "El libro recomienda detenerse para prevenir un incendio."
+      },
+      {
+        "id": "C",
+        "text": "Encender un cigarrillo para comprobar si hay vapores.",
+        "feedback": "Una llama puede provocar un incendio o explosión."
+      },
+      {
+        "id": "D",
+        "text": "Llenar el estanque lo antes posible.",
+        "feedback": "El problema puede ser una fuga; cargar combustible no es la solución."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Un olor intenso a gasolina puede indicar una fuga. Debes detenerte e investigar la causa para prevenir un incendio.",
+    "tip": "Ante olor a combustible, evita fuentes de ignición y detén el vehículo en un lugar seguro.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "El sistema de combustible",
+      "page": 13
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q003",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Monóxido de carbono",
+    "difficulty": "easy",
+    "prompt": "Dentro del vehículo comienzas a sentir dolor de cabeza y náuseas, y sospechas una fuga de gases de escape. ¿Qué haces primero?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Subir la calefacción.",
+        "feedback": "La calefacción no elimina la posible entrada de monóxido de carbono."
+      },
+      {
+        "id": "B",
+        "text": "Salir del vehículo y respirar aire fresco.",
+        "feedback": "Es la conducta recomendada ante señales de intoxicación."
+      },
+      {
+        "id": "C",
+        "text": "Cerrar todas las ventanas y continuar.",
+        "feedback": "Esto puede aumentar la exposición a gases tóxicos."
+      },
+      {
+        "id": "D",
+        "text": "Conducir más rápido para llegar antes.",
+        "feedback": "Seguir conduciendo pone en riesgo tu conciencia y control del vehículo."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "El monóxido de carbono es venenoso, incoloro e inodoro. Ante señales de intoxicación, el libro indica salir del vehículo y respirar aire fresco.",
+    "tip": "Una sospecha de intoxicación exige detener el viaje, no resistir hasta el destino.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "El sistema de escape",
+      "page": 14
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q004",
+    "type": "conceptual",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Embrague",
+    "difficulty": "easy",
+    "prompt": "¿Qué ocurre si conduces manteniendo el pedal de embrague presionado más tiempo del necesario?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Aumenta el control del vehículo.",
+        "feedback": "Ocurre lo contrario: se reduce el control."
+      },
+      {
+        "id": "B",
+        "text": "Reduce el control sobre el vehículo.",
+        "feedback": "Es lo señalado por el libro oficial."
+      },
+      {
+        "id": "C",
+        "text": "Mejora el frenado ABS.",
+        "feedback": "El embrague no mejora el funcionamiento del ABS."
+      },
+      {
+        "id": "D",
+        "text": "Disminuye siempre la distancia de frenado.",
+        "feedback": "No existe esa garantía y se pierde control."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Conducir presionando el embrague por más tiempo del necesario interrumpe la transmisión de energía y reduce el control sobre el vehículo.",
+    "tip": "Usa el embrague solo durante el tiempo necesario para cambiar de marcha.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "La transmisión",
+      "page": 14
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q005",
+    "type": "conceptual",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Neumáticos",
+    "difficulty": "easy",
+    "prompt": "¿Cuándo se recomienda controlar la presión de los neumáticos?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cuando están fríos.",
+        "feedback": "Es la condición recomendada para obtener una medición correcta."
+      },
+      {
+        "id": "B",
+        "text": "Inmediatamente después de un viaje largo.",
+        "feedback": "Al estar calientes la presión medida puede inducir a un ajuste incorrecto."
+      },
+      {
+        "id": "C",
+        "text": "Solo cuando se enciende un testigo.",
+        "feedback": "La revisión debe ser periódica, no solo reactiva."
+      },
+      {
+        "id": "D",
+        "text": "Únicamente antes de la revisión técnica.",
+        "feedback": "La presión debe controlarse regularmente."
+      }
+    ],
+    "correct_id": "A",
+    "explanation": "La presión debe controlarse con los neumáticos fríos y respetando las recomendaciones del fabricante.",
+    "tip": "Revisa la presión antes de iniciar el viaje, no después de haber calentado los neumáticos.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Los neumáticos",
+      "page": 19
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q006",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Reventón de neumático",
+    "difficulty": "easy",
+    "prompt": "Se revienta un neumático delantero mientras conduces. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Frenar bruscamente y soltar el volante.",
+        "feedback": "Una frenada brusca y perder el control del volante aumenta el riesgo."
+      },
+      {
+        "id": "B",
+        "text": "Frenar suavemente, sostener firmemente el volante y detenerte lentamente.",
+        "feedback": "Es la respuesta indicada para un reventón delantero."
+      },
+      {
+        "id": "C",
+        "text": "Acelerar para estabilizar el vehículo.",
+        "feedback": "Aumentar la velocidad agrava el riesgo."
+      },
+      {
+        "id": "D",
+        "text": "Virar de inmediato hacia la pista contraria.",
+        "feedback": "Nunca debes invadir otra pista de forma brusca."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Ante un reventón delantero, debes frenar de forma suave, sostener el volante firmemente y detenerte lentamente al costado de la vía.",
+    "tip": "Evita movimientos bruscos: estabilidad primero, detención después.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Qué hacer en caso de reventar un neumático",
+      "page": 19
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q007",
+    "type": "conceptual",
+    "topic": "Visibilidad",
+    "subtopic": "Luces neblineras",
+    "difficulty": "easy",
+    "prompt": "¿Cuándo deben utilizarse las luces neblineras?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Siempre que se conduce de noche.",
+        "feedback": "No están destinadas al uso nocturno normal."
+      },
+      {
+        "id": "B",
+        "text": "Solo cuando la visibilidad está considerablemente reducida por niebla o lluvia torrencial.",
+        "feedback": "Es el uso señalado en el libro."
+      },
+      {
+        "id": "C",
+        "text": "Para estacionar en doble fila.",
+        "feedback": "Las luces no autorizan un estacionamiento peligroso o ilegal."
+      },
+      {
+        "id": "D",
+        "text": "Para avisar que se adelantará.",
+        "feedback": "El adelantamiento se señaliza con intermitentes, no con neblineras."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Las luces neblineras pueden usarse cuando la visibilidad está considerablemente reducida por niebla o lluvia torrencial, y deben apagarse cuando mejore.",
+    "tip": "Más luz no siempre significa mejor visibilidad; usa cada sistema para su función.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Las luces",
+      "page": 21
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q008",
+    "type": "conceptual",
+    "topic": "Seguridad pasiva",
+    "subtopic": "Cinturón",
+    "difficulty": "easy",
+    "prompt": "¿Quiénes deben utilizar cinturón de seguridad dentro del automóvil?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Solo la persona conductora.",
+        "feedback": "Todas las personas ocupantes deben ir sujetas."
+      },
+      {
+        "id": "B",
+        "text": "Solo quienes viajan adelante.",
+        "feedback": "También deben usarlo quienes viajan atrás."
+      },
+      {
+        "id": "C",
+        "text": "Todas las personas ocupantes, incluso en los asientos traseros.",
+        "feedback": "Es la regla de seguridad indicada por el libro."
+      },
+      {
+        "id": "D",
+        "text": "Solo en carreteras.",
+        "feedback": "Debe utilizarse en todos los desplazamientos."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "Todas las personas que viajan en el automóvil deben ir bien sujetas, incluso en los asientos traseros.",
+    "tip": "Antes de moverte, confirma que cada ocupante esté correctamente sujeto.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "El cinturón de seguridad",
+      "page": 26
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q009",
+    "type": "conceptual",
+    "topic": "Seguridad pasiva",
+    "subtopic": "Airbag",
+    "difficulty": "easy",
+    "prompt": "¿Qué afirmación sobre el airbag es correcta?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reemplaza el cinturón de seguridad.",
+        "feedback": "El airbag no sustituye al cinturón."
+      },
+      {
+        "id": "B",
+        "text": "Es eficaz principalmente cuando se usa junto con el cinturón.",
+        "feedback": "El libro destaca que ambos sistemas funcionan de manera complementaria."
+      },
+      {
+        "id": "C",
+        "text": "Permite llevar un sistema de retención infantil en el asiento delantero.",
+        "feedback": "El libro indica no instalarlo en el asiento delantero."
+      },
+      {
+        "id": "D",
+        "text": "Evita por sí solo cualquier lesión.",
+        "feedback": "Ningún sistema elimina completamente el riesgo."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "La eficacia del airbag frontal se basa en su combinación con el cinturón de seguridad y una posición adecuada.",
+    "tip": "Piensa en los sistemas de seguridad como capas complementarias, no sustitutos.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "El airbag",
+      "page": 30
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q010",
+    "type": "conceptual",
+    "topic": "Alcohol y drogas",
+    "subtopic": "Alcohol",
+    "difficulty": "easy",
+    "prompt": "Según el libro oficial, ¿cuál es la única tasa de alcohol segura para conducir?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0,1 g/l.",
+        "feedback": "Incluso pequeñas concentraciones pueden afectar la conducta."
+      },
+      {
+        "id": "B",
+        "text": "0,3 g/l.",
+        "feedback": "Ese valor no se considera una tasa segura."
+      },
+      {
+        "id": "C",
+        "text": "0.",
+        "feedback": "Es la recomendación explícita del libro."
+      },
+      {
+        "id": "D",
+        "text": "Depende de la experiencia de la persona.",
+        "feedback": "La experiencia no vuelve seguro conducir con alcohol."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "El libro señala expresamente que la única tasa de alcohol segura para conducir es cero.",
+    "tip": "Si vas a beber, define el transporte de regreso antes de comenzar.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Sobre el alcohol en la conducción",
+      "page": 51
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q011",
+    "type": "conceptual",
+    "topic": "Fatiga y sueño",
+    "subtopic": "Descanso",
+    "difficulty": "easy",
+    "prompt": "En un viaje largo, ¿cada cuánto tiempo o distancia se recomienda descansar como máximo?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cada 4 horas o 400 km.",
+        "feedback": "Es demasiado tiempo sin descanso."
+      },
+      {
+        "id": "B",
+        "text": "Cada 2 horas o 200 km.",
+        "feedback": "Es la recomendación del libro."
+      },
+      {
+        "id": "C",
+        "text": "Solo cuando aparezcan microsueños.",
+        "feedback": "Debes detenerte antes de llegar a esa fase."
+      },
+      {
+        "id": "D",
+        "text": "Una vez al final del viaje.",
+        "feedback": "La fatiga debe prevenirse durante el trayecto."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "En viajes largos se recomienda descansar al menos 20 a 30 minutos cada 2 horas o 200 kilómetros de conducción, como máximo.",
+    "tip": "Programa las pausas antes del viaje; no esperes a sentirte vencido por el sueño.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Cansancio, sueño y fatiga",
+      "page": 66
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q012",
+    "type": "conceptual",
+    "topic": "Usuarios vulnerables",
+    "subtopic": "Ciclistas",
+    "difficulty": "easy",
+    "prompt": "Al adelantar a una persona ciclista, ¿qué distancia lateral mínima debes dejar?",
+    "options": [
+      {
+        "id": "A",
+        "text": "50 centímetros.",
+        "feedback": "Es insuficiente."
+      },
+      {
+        "id": "B",
+        "text": "1 metro.",
+        "feedback": "La normativa citada en el libro exige más."
+      },
+      {
+        "id": "C",
+        "text": "Al menos 1,5 metros.",
+        "feedback": "Es la distancia mínima indicada."
+      },
+      {
+        "id": "D",
+        "text": "No existe una distancia mínima.",
+        "feedback": "Sí existe una distancia lateral mínima."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "Al pasar cerca de una persona ciclista debes dejar un espacio lateral de al menos 1,5 metros.",
+    "tip": "Considera que una bicicleta puede desviarse por viento, baches o pérdida de equilibrio.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "5. Las y los usuarios vulnerables",
+      "section": "Personas ciclistas",
+      "page": 71
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q013",
+    "type": "conceptual",
+    "topic": "Normas de circulación",
+    "subtopic": "Jerarquía de señales",
+    "difficulty": "easy",
+    "prompt": "Un carabinero te indica detenerte, pero el semáforo está en verde. ¿Qué instrucción debes obedecer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "La luz verde del semáforo.",
+        "feedback": "Las indicaciones de Carabineros prevalecen."
+      },
+      {
+        "id": "B",
+        "text": "La indicación del carabinero.",
+        "feedback": "Es la instrucción de mayor jerarquía en esta situación."
+      },
+      {
+        "id": "C",
+        "text": "La señal vertical más cercana.",
+        "feedback": "También queda subordinada a la indicación del carabinero."
+      },
+      {
+        "id": "D",
+        "text": "La decisión de los demás conductores.",
+        "feedback": "Debes seguir la instrucción oficial, no imitar al resto."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Las indicaciones dadas por Carabineros de Chile prevalecen sobre semáforos y demás señales.",
+    "tip": "En una contradicción aparente, sigue la instrucción de mayor jerarquía.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Las señales de Carabineros",
+      "page": 77
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q014",
+    "type": "conceptual",
+    "topic": "Normas de circulación",
+    "subtopic": "Semáforo",
+    "difficulty": "easy",
+    "prompt": "¿Qué significa una luz roja intermitente?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Paso libre sin detenerse.",
+        "feedback": "No autoriza un paso libre."
+      },
+      {
+        "id": "B",
+        "text": "Ceda el paso.",
+        "feedback": "Es el significado indicado en el libro."
+      },
+      {
+        "id": "C",
+        "text": "Pista cerrada.",
+        "feedback": "El cierre de pista se representa de otra forma."
+      },
+      {
+        "id": "D",
+        "text": "Acelerar para despejar el cruce.",
+        "feedback": "Debes verificar que cruzar sea seguro."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "La luz roja intermitente indica ceda el paso. Se puede continuar después de verificar que no se aproximen vehículos cuya cercanía haga riesgoso el cruce.",
+    "tip": "Rojo intermitente no significa ignorar el cruce: exige evaluación y prioridad al otro tránsito.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Los semáforos",
+      "page": 78
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q015",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "ABS",
+    "difficulty": "medium",
+    "prompt": "Debes realizar una frenada de emergencia en un vehículo con ABS. ¿Cómo actúas?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Presionas a fondo el freno y mantienes la presión mientras diriges el vehículo.",
+        "feedback": "El ABS evita el bloqueo y permite conservar la dirección."
+      },
+      {
+        "id": "B",
+        "text": "Bombeas repetidamente el pedal de freno.",
+        "feedback": "Esa técnica no corresponde al funcionamiento del ABS."
+      },
+      {
+        "id": "C",
+        "text": "Usas únicamente el freno de estacionamiento.",
+        "feedback": "Puede desestabilizar el vehículo y no es el sistema principal de frenado."
+      },
+      {
+        "id": "D",
+        "text": "Apagas el motor antes de frenar.",
+        "feedback": "Perderías asistencias y control."
+      }
+    ],
+    "correct_id": "A",
+    "explanation": "El ABS reduce la presión cuando detecta bloqueo mientras mantienes el pedal presionado a fondo, permitiendo que las ruedas sigan girando y que conserves el control de la dirección.",
+    "tip": "Con ABS: presión firme y continua; mira hacia la zona segura a la que quieres dirigir el vehículo.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Los frenos",
+      "page": 17
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q016",
+    "type": "situacion_real",
+    "topic": "Mecánica y seguridad",
+    "subtopic": "Reventón trasero",
+    "difficulty": "medium",
+    "prompt": "Se revienta un neumático trasero y la cola del vehículo se desvía hacia la izquierda. ¿Hacia dónde debes girar el volante?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hacia la derecha, en sentido contrario al desvío.",
+        "feedback": "El libro indica girar hacia el lado en que se desvía la cola."
+      },
+      {
+        "id": "B",
+        "text": "Hacia la izquierda, siguiendo el desvío de la cola.",
+        "feedback": "Es la corrección indicada para un reventón trasero."
+      },
+      {
+        "id": "C",
+        "text": "Mantenerlo completamente suelto.",
+        "feedback": "Debes sostener el control del vehículo."
+      },
+      {
+        "id": "D",
+        "text": "Hacer un viraje completo en U.",
+        "feedback": "Una maniobra brusca aumentaría el riesgo."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Si se revienta un neumático trasero, debes girar el volante hacia el lado en que se desvía la cola del vehículo y detenerte lentamente.",
+    "tip": "Corrige suavemente; no conviertas una pérdida parcial de estabilidad en una maniobra brusca.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Qué hacer en caso de reventar un neumático",
+      "page": 19
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q017",
+    "type": "calculo_aplicado",
+    "topic": "Velocidad y distancias",
+    "subtopic": "Distancia de reacción",
+    "difficulty": "medium",
+    "prompt": "Circulas a 90 km/h. Usando la regla aproximada del libro, ¿qué distancia recorres durante un segundo de reacción?",
+    "options": [
+      {
+        "id": "A",
+        "text": "9 metros.",
+        "feedback": "Corresponde aproximadamente a 30 km/h."
+      },
+      {
+        "id": "B",
+        "text": "18 metros.",
+        "feedback": "Es menor que la estimación indicada."
+      },
+      {
+        "id": "C",
+        "text": "27 metros.",
+        "feedback": "Se obtiene multiplicando la primera cifra de 90 por 3."
+      },
+      {
+        "id": "D",
+        "text": "90 metros.",
+        "feedback": "Esa no es la regla de distancia de reacción."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "Hasta 99 km/h, la distancia de reacción aproximada se estima multiplicando por tres la primera cifra de la velocidad. Para 90 km/h: 9 × 3 = 27 metros.",
+    "tip": "La reacción ocurre antes de que los frenos comiencen a actuar; ese espacio también cuenta.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "La distancia de detención",
+      "page": 24
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q018",
+    "type": "conceptual",
+    "topic": "Velocidad y distancias",
+    "subtopic": "Energía y frenado",
+    "difficulty": "medium",
+    "prompt": "Si duplicas la velocidad, ¿cómo cambia aproximadamente la distancia de frenado?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Se mantiene igual.",
+        "feedback": "La distancia de frenado aumenta con la velocidad."
+      },
+      {
+        "id": "B",
+        "text": "Se duplica.",
+        "feedback": "El crecimiento es mayor."
+      },
+      {
+        "id": "C",
+        "text": "Aumenta cuatro veces.",
+        "feedback": "La distancia de frenado crece al cuadrado con la velocidad."
+      },
+      {
+        "id": "D",
+        "text": "Aumenta ocho veces.",
+        "feedback": "Ese factor no corresponde a duplicar la velocidad."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "La distancia de frenado crece al cuadrado con el aumento de la velocidad. Al duplicarla, la distancia de frenado aumenta cuatro veces.",
+    "tip": "Un pequeño aumento de velocidad puede exigir mucho más espacio para detenerte.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "La distancia de detención",
+      "page": 24
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q019",
+    "type": "situacion_real",
+    "topic": "Velocidad y distancias",
+    "subtopic": "Curvas",
+    "difficulty": "medium",
+    "prompt": "Te aproximas a una curva cerrada. ¿Cuál es la técnica recomendada?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Frenar con fuerza en medio de la curva.",
+        "feedback": "Es preferible reducir antes de entrar."
+      },
+      {
+        "id": "B",
+        "text": "Reducir la velocidad antes de la curva y acelerar suavemente al salir.",
+        "feedback": "Es la técnica indicada por el libro."
+      },
+      {
+        "id": "C",
+        "text": "Entrar rápido y presionar el embrague.",
+        "feedback": "Aumenta el riesgo y reduce el control."
+      },
+      {
+        "id": "D",
+        "text": "Dejar que el vehículo avance por inercia durante toda la curva.",
+        "feedback": "El libro indica no dejarlo marchar por su propia inercia."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "La velocidad debe reducirse con anticipación antes de la curva. Luego se acelera suavemente al salir para recuperar la velocidad de forma controlada.",
+    "tip": "La decisión segura se toma antes de la curva, no cuando ya estás comprometido dentro de ella.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "La energía del movimiento",
+      "page": 23
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q020",
+    "type": "situacion_real",
+    "topic": "Velocidad y distancias",
+    "subtopic": "Pendientes",
+    "difficulty": "medium",
+    "prompt": "Desciendes una pendiente pronunciada y notas que los frenos podrían calentarse. ¿Qué es lo más seguro?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Desenganchar el motor para ahorrar combustible.",
+        "feedback": "El libro advierte que nunca debes hacerlo porque pierdes control."
+      },
+      {
+        "id": "B",
+        "text": "Usar una marcha baja para que el motor ayude a frenar.",
+        "feedback": "Es la técnica recomendada."
+      },
+      {
+        "id": "C",
+        "text": "Mantener el embrague presionado.",
+        "feedback": "Reduce el control y elimina el efecto de frenado del motor."
+      },
+      {
+        "id": "D",
+        "text": "Acelerar para terminar antes la bajada.",
+        "feedback": "Aumenta la energía y la exigencia de frenado."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "En pendientes pronunciadas puede ser necesario usar una marcha baja para aprovechar el freno motor y evitar el sobrecalentamiento de los frenos. Nunca debes desenganchar el motor.",
+    "tip": "Selecciona la marcha adecuada antes de que la pendiente te obligue a depender solo del pedal de freno.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "La fuerza de gravedad",
+      "page": 25
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q021",
+    "type": "conceptual",
+    "topic": "Seguridad pasiva",
+    "subtopic": "Apoya cabezas",
+    "difficulty": "medium",
+    "prompt": "¿Cuál es la posición correcta del apoya cabezas?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Por debajo de la nuca y separado 10 cm.",
+        "feedback": "Esa posición reduce drásticamente su eficacia."
+      },
+      {
+        "id": "B",
+        "text": "Con el borde superior entre la parte alta de la cabeza y la altura de los ojos, y a no más de 4 cm.",
+        "feedback": "Es la regulación indicada."
+      },
+      {
+        "id": "C",
+        "text": "A la altura de los hombros.",
+        "feedback": "Quedaría demasiado bajo."
+      },
+      {
+        "id": "D",
+        "text": "No importa mientras el cinturón esté puesto.",
+        "feedback": "Ambos elementos cumplen funciones complementarias."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "El borde superior debe quedar entre el límite superior de la cabeza y la altura de los ojos. La separación con la cabeza debe ser mínima y nunca superior a 4 cm.",
+    "tip": "Ajusta asiento, cinturón y apoya cabezas antes de iniciar la marcha.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "2. Los principios de la conducción",
+      "section": "Los apoya cabezas",
+      "page": 31
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q022",
+    "type": "situacion_real",
+    "topic": "Atención y percepción",
+    "subtopic": "Distracciones",
+    "difficulty": "medium",
+    "prompt": "La carretera parece continuar hacia la izquierda, pero necesitas cambiar la radio justo antes de una curva. ¿Qué conducta reduce el riesgo?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cambiar la radio rápidamente mientras mantienes la velocidad.",
+        "feedback": "Dividir la atención puede hacer que interpretes mal el entorno."
+      },
+      {
+        "id": "B",
+        "text": "Mantener toda la atención en la ruta y postergar la acción sobre la radio.",
+        "feedback": "Conducir requiere atención completa."
+      },
+      {
+        "id": "C",
+        "text": "Mirar solo el GPS.",
+        "feedback": "También desvía la atención de la vía."
+      },
+      {
+        "id": "D",
+        "text": "Acelerar para pasar la zona compleja antes.",
+        "feedback": "Reduce el tiempo disponible para reaccionar."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "El libro muestra cómo una distracción al manipular la radio contribuye a una interpretación errónea de una curva. Hacer dos cosas a la vez es especialmente riesgoso para personas con poca experiencia.",
+    "tip": "Todo lo que no sea conducir puede esperar unos segundos o realizarse después de detenerse.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Falta de concentración",
+      "page": 39
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q023",
+    "type": "conceptual",
+    "topic": "Atención y percepción",
+    "subtopic": "Tiempo de reacción",
+    "difficulty": "medium",
+    "prompt": "¿Quién se detendrá antes ante un peligro: una persona con reacción rápida que conduce muy rápido, o una que reacciona algo más lento pero conduce a baja velocidad?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Siempre la de reacción más rápida.",
+        "feedback": "La velocidad puede dominar el resultado total."
+      },
+      {
+        "id": "B",
+        "text": "La que conduce a baja velocidad.",
+        "feedback": "El libro señala que, en esa comparación, se detiene primero quien circula más lento."
+      },
+      {
+        "id": "C",
+        "text": "Ambas al mismo tiempo.",
+        "feedback": "No necesariamente; la velocidad cambia las distancias."
+      },
+      {
+        "id": "D",
+        "text": "Depende solo de la edad.",
+        "feedback": "La edad no es el único factor y la velocidad es decisiva."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Aunque el tiempo de reacción importa, una velocidad más baja permite recorrer menos distancia antes y durante el frenado. El libro señala que quien conduce a baja velocidad logrará detenerse primero.",
+    "tip": "No uses una supuesta buena reacción como justificación para conducir más rápido.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Capacidad de reacción",
+      "page": 40
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q024",
+    "type": "conceptual",
+    "topic": "Atención y percepción",
+    "subtopic": "Visión de túnel",
+    "difficulty": "medium",
+    "prompt": "¿Qué sucede con el campo visual a medida que aumenta la velocidad?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Se amplía hacia los costados.",
+        "feedback": "Ocurre lo contrario."
+      },
+      {
+        "id": "B",
+        "text": "Se reduce y aparece el efecto de visión de túnel.",
+        "feedback": "Es el fenómeno descrito por el libro."
+      },
+      {
+        "id": "C",
+        "text": "No cambia.",
+        "feedback": "La velocidad sí afecta la amplitud de lo que percibes."
+      },
+      {
+        "id": "D",
+        "text": "Solo mejora la visión nocturna.",
+        "feedback": "La velocidad no mejora la visión nocturna."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "A mayor velocidad, la mirada se fija más lejos y el campo visual se reduce, dificultando descubrir lo que ocurre a los lados de la vía.",
+    "tip": "Reducir velocidad también devuelve tiempo y amplitud para detectar riesgos laterales.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Procesamiento limitado de información",
+      "page": 44
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q025",
+    "type": "situacion_real",
+    "topic": "Alcohol y drogas",
+    "subtopic": "Metabolización",
+    "difficulty": "medium",
+    "prompt": "Después de beber, una persona toma café, se ducha con agua fría y hace ejercicio para “eliminar” el alcohol. ¿Puede asumir que ya está en condiciones de conducir?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sí, porque el café acelera el metabolismo.",
+        "feedback": "El libro indica que estos remedios no aceleran la metabolización."
+      },
+      {
+        "id": "B",
+        "text": "Sí, si se siente despierta.",
+        "feedback": "Sentirse despierto no garantiza que el alcohol haya desaparecido."
+      },
+      {
+        "id": "C",
+        "text": "No; la metabolización ocurre a un ritmo que no puede apresurarse con esos métodos.",
+        "feedback": "Es la conclusión correcta."
+      },
+      {
+        "id": "D",
+        "text": "Solo si comió dulces.",
+        "feedback": "Comer dulces tampoco acelera el proceso."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "La metabolización del alcohol no se acelera con café, dulces, cigarrillos, duchas frías ni ejercicio. Dormir pocas horas tampoco garantiza eliminarlo por completo.",
+    "tip": "La única decisión segura después de beber es no conducir.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Cómo varía la tasa de alcohol en la sangre",
+      "page": 52
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q026",
+    "type": "situacion_real",
+    "topic": "Medicamentos",
+    "subtopic": "Antihistamínicos",
+    "difficulty": "medium",
+    "prompt": "Tomas un antihistamínico nuevo antes de conducir. ¿Qué deberías hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Conducir y evaluar sus efectos en la ruta.",
+        "feedback": "Probar sus efectos mientras conduces es peligroso."
+      },
+      {
+        "id": "B",
+        "text": "Consultar a un profesional y revisar si produce somnolencia u otros efectos.",
+        "feedback": "Es la conducta recomendada."
+      },
+      {
+        "id": "C",
+        "text": "Mezclarlo con una bebida energética.",
+        "feedback": "La mezcla no elimina el riesgo y puede producir otros efectos."
+      },
+      {
+        "id": "D",
+        "text": "Tomarlo con alcohol para relajarte.",
+        "feedback": "Nunca debe mezclarse con alcohol."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Algunos antihistamínicos producen somnolencia y pueden representar un riesgo equivalente al de conducir bajo influencia del alcohol. Debes consultar sus efectos antes de conducir.",
+    "tip": "No pruebes un medicamento nuevo al volante.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "4. La persona en el tránsito",
+      "section": "Medicamentos que pueden afectar a la conducción",
+      "page": 60
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q027",
+    "type": "situacion_real",
+    "topic": "Usuarios vulnerables",
+    "subtopic": "Peatones",
+    "difficulty": "medium",
+    "prompt": "Circulas por la pista izquierda y ves un vehículo detenido en la pista derecha antes de un paso de cebra. ¿Qué debes anticipar?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Que está estacionado y puedes pasar a la misma velocidad.",
+        "feedback": "Podría estar cediendo el paso a peatones ocultos para ti."
+      },
+      {
+        "id": "B",
+        "text": "Que puede haber peatones cruzando; debes disminuir la velocidad y prepararte para detenerte.",
+        "feedback": "Es la precaución indicada."
+      },
+      {
+        "id": "C",
+        "text": "Que debes tocar la bocina para que avance.",
+        "feedback": "La bocina no resuelve el riesgo de peatones ocultos."
+      },
+      {
+        "id": "D",
+        "text": "Que tienes prioridad por ir en la pista izquierda.",
+        "feedback": "La presencia de peatones exige ceder el paso."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Un vehículo detenido antes de un paso de cebra puede estar ocultando a peatones que ya comenzaron a cruzar. Debes reducir la velocidad y estar listo para detenerte.",
+    "tip": "Un vehículo que se detiene sin razón aparente puede estar mostrando un peligro que tú todavía no ves.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "5. Las y los usuarios vulnerables",
+      "section": "Peatones",
+      "page": 68
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q028",
+    "type": "situacion_real",
+    "topic": "Normas de circulación",
+    "subtopic": "Luz verde",
+    "difficulty": "medium",
+    "prompt": "Tienes luz verde, pero después del cruce solo quedan 5 metros libres en tu pista. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Avanzar porque la luz verde siempre obliga a continuar.",
+        "feedback": "La luz verde no autoriza bloquear el cruce."
+      },
+      {
+        "id": "B",
+        "text": "Esperar antes del cruce hasta contar con al menos 10 metros expeditos.",
+        "feedback": "Es la condición indicada por el libro."
+      },
+      {
+        "id": "C",
+        "text": "Entrar al cruce y encender las luces de emergencia.",
+        "feedback": "Eso no evita la obstrucción."
+      },
+      {
+        "id": "D",
+        "text": "Cambiarte de pista dentro del cruce.",
+        "feedback": "Es una maniobra riesgosa y no resuelve la falta de espacio."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Aunque tengas luz verde, no debes avanzar si después del cruce no tienes al menos 10 metros expeditos en tu pista.",
+    "tip": "La luz verde autoriza el paso, pero no autoriza bloquear una intersección.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Los semáforos",
+      "page": 78
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q029",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Luz amarilla",
+    "difficulty": "hard",
+    "prompt": "La luz cambia a amarilla cuando estás suficientemente lejos para detenerte con seguridad. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acelerar para cruzar antes del rojo.",
+        "feedback": "La luz amarilla advierte que debes detenerte."
+      },
+      {
+        "id": "B",
+        "text": "Detenerte antes de entrar al cruce.",
+        "feedback": "Es la acción correcta cuando puedes hacerlo con seguridad."
+      },
+      {
+        "id": "C",
+        "text": "Mantener la velocidad sin evaluar la distancia.",
+        "feedback": "Debes decidir según la posibilidad de detenerte de forma segura."
+      },
+      {
+        "id": "D",
+        "text": "Detenerte dentro del cruce.",
+        "feedback": "La detención debe ocurrir antes de ingresar."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "La luz amarilla indica prevención y exige detenerse antes de entrar al cruce. Solo se continúa con precaución cuando aparece tan cerca que detenerse ya no sería seguro, o cuando ya estás dentro.",
+    "tip": "Amarillo no significa “apúrate”; significa decide con seguridad y evita entrar si puedes detenerte.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Los semáforos",
+      "page": 78
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q030",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Cruce sin señalización",
+    "difficulty": "hard",
+    "prompt": "Llegas a un cruce sin semáforo, Carabineros, señal PARE ni Ceda el Paso. Otro vehículo se aproxima por tu derecha. ¿Quién tiene preferencia?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tú, porque llegaste primero.",
+        "feedback": "La regla general indicada es ceder a quien se aproxima por la derecha."
+      },
+      {
+        "id": "B",
+        "text": "El vehículo que se aproxima por tu derecha.",
+        "feedback": "Es la prioridad general para ese cruce."
+      },
+      {
+        "id": "C",
+        "text": "El vehículo más grande.",
+        "feedback": "El tamaño no determina la preferencia."
+      },
+      {
+        "id": "D",
+        "text": "Quien toque primero la bocina.",
+        "feedback": "La bocina no otorga prioridad."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "En un cruce sin regulación ni señales de prioridad, debes dar preferencia a los vehículos que se aproximan por la otra vía desde tu derecha.",
+    "tip": "No confundas llegar primero con tener prioridad; identifica la regla aplicable antes de avanzar.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "La obligación de ceder el paso",
+      "page": 84
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q031",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Viraje y preferencia",
+    "difficulty": "hard",
+    "prompt": "Tienes luz verde y quieres virar a la derecha. Peatones y una persona ciclista cruzan reglamentariamente en la dirección de tu viraje. ¿Qué haces?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Virar primero porque tienes luz verde.",
+        "feedback": "Al virar debes ceder el paso a quienes cruzan reglamentariamente."
+      },
+      {
+        "id": "B",
+        "text": "Ceder el paso a peatones y ciclista antes de completar el viraje.",
+        "feedback": "Es la decisión correcta."
+      },
+      {
+        "id": "C",
+        "text": "Tocar la bocina para que aceleren.",
+        "feedback": "No debes presionarlos ni desplazar su prioridad."
+      },
+      {
+        "id": "D",
+        "text": "Pasar por detrás sin disminuir la velocidad.",
+        "feedback": "Debes asegurar que el cruce esté completamente seguro."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Al virar careces de preferencia frente a peatones y ciclistas que cruzan reglamentariamente, aun cuando enfrentes luz verde.",
+    "tip": "Antes de virar, revisa espejo, punto ciego y cruce peatonal; la luz verde no elimina esas obligaciones.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "La obligación de ceder el paso",
+      "page": 84
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q032",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Rotonda",
+    "difficulty": "hard",
+    "prompt": "Te incorporas a una rotonda y ves un vehículo circulando dentro de ella. ¿Qué corresponde?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ingresar primero porque vienes por la derecha.",
+        "feedback": "En una rotonda debes ceder a quienes ya circulan en ella."
+      },
+      {
+        "id": "B",
+        "text": "Ceder el paso al vehículo que ya está en la rotonda.",
+        "feedback": "Es la regla específica aplicable."
+      },
+      {
+        "id": "C",
+        "text": "Detener al vehículo con la bocina.",
+        "feedback": "La bocina no modifica la preferencia."
+      },
+      {
+        "id": "D",
+        "text": "Entrar en paralelo usando la berma.",
+        "feedback": "No corresponde circular por la berma para incorporarte."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Al incorporarte a una zona de tránsito en rotación, como una rotonda o minirrotonda, debes ceder el paso a los vehículos que circulan por ella.",
+    "tip": "La regla específica de la rotonda prevalece sobre intuiciones generales de prioridad.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "La obligación de ceder el paso",
+      "page": 84
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q033",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Paso de cebra",
+    "difficulty": "hard",
+    "prompt": "Te aproximas a un paso de cebra y una persona está claramente dispuesta a cruzar, aunque todavía no ha pisado la calzada. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mantener la velocidad mientras no pise la calzada.",
+        "feedback": "El libro indica detenerse cuando alguien se disponga a cruzar."
+      },
+      {
+        "id": "B",
+        "text": "Detenerte y cederle el paso.",
+        "feedback": "Es la obligación indicada."
+      },
+      {
+        "id": "C",
+        "text": "Pasar primero si no viene otro vehículo.",
+        "feedback": "La ausencia de otros vehículos no elimina la prioridad peatonal."
+      },
+      {
+        "id": "D",
+        "text": "Tocar la bocina para avisar que pasarás.",
+        "feedback": "No corresponde desplazar a la persona del cruce."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Al aproximarte a un paso de cebra en el que alguien se disponga a cruzar, debes detenerte y cederle el paso.",
+    "tip": "Anticipa la intención de cruzar; no esperes a que la persona esté en riesgo dentro de la calzada.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Otras obligaciones de ceder el paso",
+      "page": 85
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q034",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Salida de estacionamiento",
+    "difficulty": "hard",
+    "prompt": "Sales de un estacionamiento hacia la vía pública. Se aproxima un automóvil y por la vereda cruza una persona ciclista. ¿A quién debes ceder el paso?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Solo al automóvil.",
+        "feedback": "También debes ceder a ciclistas y peatones."
+      },
+      {
+        "id": "B",
+        "text": "Solo a la persona ciclista.",
+        "feedback": "También debes ceder a los vehículos en tránsito."
+      },
+      {
+        "id": "C",
+        "text": "A ambos.",
+        "feedback": "Al incorporarte desde un estacionamiento debes ceder a vehículos, ciclistas y peatones."
+      },
+      {
+        "id": "D",
+        "text": "A ninguno si señalizas.",
+        "feedback": "Señalizar no otorga prioridad."
+      }
+    ],
+    "correct_id": "C",
+    "explanation": "Al incorporarte desde una vía particular, inmueble o estacionamiento, debes ceder el paso a los vehículos en tránsito, incluidos ciclistas, y a peatones.",
+    "tip": "Señalizar comunica tu intención; no reemplaza la obligación de ceder el paso.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Otras obligaciones de ceder el paso",
+      "page": 85
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q035",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Vehículo de emergencia",
+    "difficulty": "hard",
+    "prompt": "Una ambulancia se aproxima por detrás usando señales luminosas y acústicas. Circulan en el mismo sentido. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acelerar para no obstaculizarla.",
+        "feedback": "Aumentar la velocidad puede impedir su paso y elevar el riesgo."
+      },
+      {
+        "id": "B",
+        "text": "Desplazarte hacia un lado y detenerte si es necesario hasta que pase.",
+        "feedback": "Es la conducta indicada."
+      },
+      {
+        "id": "C",
+        "text": "Mantener tu pista y velocidad.",
+        "feedback": "Debes ceder el derecho a vía."
+      },
+      {
+        "id": "D",
+        "text": "Seguirla de cerca para avanzar más rápido.",
+        "feedback": "Es una conducta peligrosa y no autorizada."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Ante un vehículo de emergencia con señales activadas debes cederle el derecho a vía, desplazándote hacia un lado y deteniéndote si es necesario.",
+    "tip": "Haz movimientos previsibles y deja una vía clara; no compitas por el espacio.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Vehículos de emergencia",
+      "page": 85
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q036",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Cambio de pista",
+    "difficulty": "hard",
+    "prompt": "Quieres cambiarte de pista. ¿Cuál es la secuencia correcta antes de ejecutar la maniobra?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Señalización, maniobra, espejo.",
+        "feedback": "Debes observar antes de señalizar y maniobrar."
+      },
+      {
+        "id": "B",
+        "text": "Espejo, señalización, maniobra.",
+        "feedback": "Es la secuencia indicada por el libro."
+      },
+      {
+        "id": "C",
+        "text": "Maniobra, señalización, espejo.",
+        "feedback": "La señal tardía no permite anticipar tu intención."
+      },
+      {
+        "id": "D",
+        "text": "Bocina, aceleración, maniobra.",
+        "feedback": "No reemplaza la verificación del entorno."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Antes de cambiar de pista se aplica la secuencia espejo–señalización–maniobra. Además, debes verificar los puntos ciegos y que el cambio sea seguro.",
+    "tip": "La señal no pide permiso ni crea espacio: primero verifica que el espacio exista.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Signos y señales",
+      "page": 86
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q037",
+    "type": "situacion_compleja",
+    "topic": "Velocidad y distancias",
+    "subtopic": "Regla de los tres segundos",
+    "difficulty": "hard",
+    "prompt": "En carretera, el vehículo de adelante pasa junto a un poste. Tú pasas el mismo poste cuando apenas alcanzas a contar “mil dos”. ¿Qué significa?",
+    "options": [
+      {
+        "id": "A",
+        "text": "La distancia es suficiente.",
+        "feedback": "La regla requiere llegar al menos a “mil tres”."
+      },
+      {
+        "id": "B",
+        "text": "La distancia es demasiado corta y debes aumentarla.",
+        "feedback": "Es la interpretación correcta."
+      },
+      {
+        "id": "C",
+        "text": "Debes adelantar inmediatamente.",
+        "feedback": "La distancia corta no justifica un adelantamiento."
+      },
+      {
+        "id": "D",
+        "text": "La regla solo sirve en ciudad.",
+        "feedback": "El libro la propone para carreteras."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Si alcanzas el punto de referencia antes de contar mil tres, la distancia es demasiado corta. Debes disminuir la presión sobre el acelerador y aumentarla, agregando más tiempo en condiciones adversas.",
+    "tip": "La distancia se adapta al clima, pavimento y visibilidad; tres segundos es una base, no un máximo.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Distancia a los vehículos que van delante",
+      "page": 88
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q038",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Vehículos estacionados",
+    "difficulty": "hard",
+    "prompt": "Pasas junto a una fila de vehículos estacionados. ¿Qué espacio lateral y conducta son más seguros?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Pasar muy cerca para dejar espacio al tránsito contrario.",
+        "feedback": "Una puerta puede abrirse o una persona aparecer."
+      },
+      {
+        "id": "B",
+        "text": "Dejar aproximadamente el ancho de una puerta, reducir velocidad y observar entre los vehículos.",
+        "feedback": "Es la recomendación del libro."
+      },
+      {
+        "id": "C",
+        "text": "Tocar la bocina continuamente y mantener velocidad.",
+        "feedback": "La bocina no sustituye una separación segura."
+      },
+      {
+        "id": "D",
+        "text": "Circular sobre la línea central sin mirar atrás.",
+        "feedback": "Debes ubicarte de forma segura y evaluar el tránsito contrario."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Debes dejar un espacio equivalente al ancho de una puerta al pasar cerca de vehículos estacionados, reducir la velocidad y atender a peatones que puedan aparecer.",
+    "tip": "La zona junto a autos estacionados es una zona de incertidumbre: espera puertas y peatones ocultos.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Cuando hay vehículos estacionados",
+      "page": 89
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q039",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Adelantamiento",
+    "difficulty": "hard",
+    "prompt": "Vas a adelantar un camión largo, pero no tienes visibilidad suficiente del tramo que viene. ¿Qué decisión es más segura?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acercarte mucho al camión y salir rápidamente.",
+        "feedback": "Acercarte reduce aún más la visibilidad y el margen de maniobra."
+      },
+      {
+        "id": "B",
+        "text": "Mantener suficiente espacio detrás y esperar hasta tener visibilidad y distancia para completar la maniobra.",
+        "feedback": "Es la decisión coherente con el libro."
+      },
+      {
+        "id": "C",
+        "text": "Usar parcialmente la berma para adelantar.",
+        "feedback": "La berma no es una pista de adelantamiento."
+      },
+      {
+        "id": "D",
+        "text": "Comenzar y confiar en que el camión reducirá su velocidad.",
+        "feedback": "No debes depender de la ayuda del vehículo adelantado."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Antes de adelantar un vehículo de gran tamaño debes mantener suficiente espacio detrás para mejorar la visión hacia adelante y asegurarte de contar con distancia suficiente para completar la maniobra.",
+    "tip": "Si no puedes ver cómo termina la maniobra, todavía no es seguro comenzarla.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Encuentros y adelantamientos",
+      "page": 99
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q040",
+    "type": "situacion_compleja",
+    "topic": "Normas de circulación",
+    "subtopic": "Adelantamiento abortado",
+    "difficulty": "hard",
+    "prompt": "Durante un adelantamiento aparece un vehículo en sentido contrario y sientes que el margen ya no es seguro. ¿Qué debes hacer?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acelerar por sobre el límite para terminar.",
+        "feedback": "No debes superar el límite y el margen puede seguir siendo insuficiente."
+      },
+      {
+        "id": "B",
+        "text": "Interrumpir el adelantamiento y volver a una posición segura.",
+        "feedback": "El libro indica abortar la maniobra ante inseguridad."
+      },
+      {
+        "id": "C",
+        "text": "Mantenerte en el centro esperando que el otro vehículo se aparte.",
+        "feedback": "No debes depender de que terceros resuelvan tu maniobra."
+      },
+      {
+        "id": "D",
+        "text": "Usar la bocina y continuar.",
+        "feedback": "La bocina no crea distancia ni prioridad."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Si aparece un vehículo en sentido contrario o sientes inseguridad, debes interrumpir el adelantamiento en lugar de insistir.",
+    "tip": "Abandonar una maniobra insegura es una buena decisión, no un fracaso.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "6. Normas de circulación",
+      "section": "Durante el adelantamiento",
+      "page": 100
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q041",
+    "type": "situacion_compleja",
+    "topic": "Usuarios vulnerables",
+    "subtopic": "Ciclistas y viraje",
+    "difficulty": "hard",
+    "prompt": "Circulas detrás de una persona ciclista y vas a virar a la derecha en el próximo cruce. ¿Qué conducta corresponde?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Adelantarla justo antes del cruce y virar delante de ella.",
+        "feedback": "El libro indica no adelantar a una persona ciclista antes o en un cruce, especialmente si vas a virar a la derecha."
+      },
+      {
+        "id": "B",
+        "text": "Esperar a que la persona ciclista pase la intersección y luego realizar el viraje.",
+        "feedback": "Es la conducta segura indicada."
+      },
+      {
+        "id": "C",
+        "text": "Tocar la bocina para que se detenga.",
+        "feedback": "No debes forzar a la persona ciclista a cederte el paso."
+      },
+      {
+        "id": "D",
+        "text": "Virar usando la ciclovía.",
+        "feedback": "Los vehículos motorizados no pueden circular por ciclovías."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "No debes adelantar a una persona ciclista antes o en un cruce, especialmente si vas a virar a la derecha. Espera a que pase la intersección; al virar pierdes la preferencia.",
+    "tip": "El conflicto más peligroso suele quedar en tu punto ciego derecho: verifica antes de virar.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "5. Las y los usuarios vulnerables",
+      "section": "Personas ciclistas",
+      "page": 72
+    },
+    "status": "verified_from_official_source"
+  },
+  {
+    "id": "Q042",
+    "type": "situacion_compleja",
+    "topic": "Usuarios vulnerables",
+    "subtopic": "Niñas y niños",
+    "difficulty": "hard",
+    "prompt": "Pasas junto a un vehículo de transporte escolar detenido. No ves niñas ni niños en la calzada. ¿Qué debes asumir?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Que puedes mantener la velocidad porque no hay nadie visible.",
+        "feedback": "Niñas y niños pueden aparecer de forma repentina y quedar ocultos."
+      },
+      {
+        "id": "B",
+        "text": "Que puede haber niñas o niños subiendo, bajando o cruzando; debes estar preparado para detenerte.",
+        "feedback": "Es la precaución indicada."
+      },
+      {
+        "id": "C",
+        "text": "Que el transporte escolar siempre te cederá el paso.",
+        "feedback": "No debes depender de esa suposición."
+      },
+      {
+        "id": "D",
+        "text": "Que basta con tocar la bocina.",
+        "feedback": "La bocina no reemplaza reducir velocidad y anticipar."
+      }
+    ],
+    "correct_id": "B",
+    "explanation": "Las niñas y niños pueden actuar impulsivamente y aparecer desde zonas ocultas. Al pasar junto a transporte escolar detenido debes estar preparado para detenerte.",
+    "tip": "Cerca de escuelas o transporte escolar, conduce como si alguien pudiera aparecer detrás del vehículo.",
+    "source": {
+      "document": "Libro para la Conducción en Chile — Automovilistas, Licencia Clase B (CONASET, 2024)",
+      "chapter": "5. Las y los usuarios vulnerables",
+      "section": "Las niñas y niños",
+      "page": 70
+    },
+    "status": "verified_from_official_source"
+  }
+]
