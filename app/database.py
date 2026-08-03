@@ -231,6 +231,41 @@ def authenticate_profile(display_name: str, pin: str) -> dict[str, Any] | None:
     return profile
 
 
+
+
+def get_or_create_single_profile(display_name: str = "Perfil principal") -> dict[str, Any]:
+    name_key = normalize_name(display_name)
+    response = _run(
+        lambda: (
+            get_client()
+            .table("profiles")
+            .select("id,display_name,name_key,created_at")
+            .eq("name_key", name_key)
+            .limit(1)
+            .execute()
+        )
+    )
+    rows = response.data or []
+    if rows:
+        return rows[0]
+    try:
+        return create_profile(display_name, "000000")
+    except ProfileAlreadyExistsError:
+        response = _run(
+            lambda: (
+                get_client()
+                .table("profiles")
+                .select("id,display_name,name_key,created_at")
+                .eq("name_key", name_key)
+                .limit(1)
+                .execute()
+            )
+        )
+        rows = response.data or []
+        if rows:
+            return rows[0]
+        raise DatabaseUnavailableError("No se pudo inicializar el perfil principal.")
+
 def create_session(
     profile_id: str,
     mode: str,

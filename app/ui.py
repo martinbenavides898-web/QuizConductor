@@ -73,7 +73,7 @@ def inject_css() -> None:
           place-items:center;
           background: linear-gradient(145deg, #3a3a40, #1f1f24);
           color:#ffffff;
-          font-size:1rem;
+          font-size:1.02rem;
           font-weight:800;
           letter-spacing:-0.02em;
           box-shadow: 0 10px 20px rgba(20, 20, 24, 0.16);
@@ -338,7 +338,7 @@ def brand() -> None:
     st.markdown(
         """
         <div class="cp-brand">
-          <div class="cp-logo">CP</div>
+          <div class="cp-logo">C+</div>
           <div>
             <div class="cp-brand-name">Conduce+</div>
             <div class="cp-brand-sub">Aprendizaje seguro para licencia clase B</div>

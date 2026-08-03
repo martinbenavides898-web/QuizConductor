@@ -19,6 +19,7 @@ from app.database import (
     create_session,
     get_attempts_for_session,
     get_daily_session,
+    get_or_create_single_profile,
     get_session,
     get_user_attempts,
     get_user_sessions,
@@ -217,8 +218,6 @@ def render_login() -> None:
 
 def render_home(profile: dict) -> None:
     profile_id = profile["id"]
-    user_name = profile["display_name"]
-    safe_name = html.escape(user_name)
     attempts = get_user_attempts(profile_id)
     sessions = get_user_sessions(profile_id)
     streak = calculate_streak(sessions)
@@ -231,7 +230,7 @@ def render_home(profile: dict) -> None:
     st.markdown(
         f"""
         <div class="cp-hero">
-          <h1>Hola, {safe_name}</h1>
+          <h1>Conduce con calma y criterio</h1>
           <p>Hoy entrenaremos decisiones seguras, no respuestas de memoria.</p>
         </div>
         """,
@@ -622,14 +621,13 @@ def main() -> None:
     healthcheck()
 
     if "profile" not in st.session_state:
-        render_login()
-        return
+        profile = get_or_create_single_profile("Perfil principal")
+        st.session_state["profile"] = {
+            "id": str(profile["id"]),
+            "display_name": str(profile["display_name"]),
+        }
 
     profile = st.session_state["profile"]
-    with st.sidebar:
-        st.caption(f"Sesión: {profile['display_name']}")
-        if st.button("Cerrar sesión", use_container_width=True):
-            logout()
 
     brand()
     nav = prepare_navigation()
