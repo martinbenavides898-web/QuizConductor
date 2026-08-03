@@ -1,8 +1,13 @@
-# Conduce+ v0.3 — Streamlit + Supabase
+# Conduce+ v0.3.1 — Streamlit + Supabase
 
 Aplicación mobile-first para preparar la Licencia de Conducir Clase B en Chile mediante preguntas situacionales, retroalimentación pedagógica y refuerzo adaptativo.
 
-## Correcciones de la versión 0.3
+## Correcciones de la versión 0.3.1
+
+- Compatibilidad corregida con Python 3.14 en Streamlit Community Cloud.
+- Eliminada la importación directa de Altair 5 que impedía iniciar la aplicación.
+- Streamlit fijado en una versión compatible con Python 3.14 y Vega-Altair 6.
+- Gráfico de evolución migrado a `st.line_chart` para reducir dependencias frágiles.
 
 - Calendario mensual real, alineado de lunes a domingo y con navegación entre meses.
 - Distinción entre desafío completado, desafío iniciado y práctica registrada.

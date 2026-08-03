@@ -4,7 +4,6 @@ import time
 from collections import defaultdict
 from datetime import date
 
-import altair as alt
 import pandas as pd
 import streamlit as st
 from PIL import Image
@@ -395,43 +394,19 @@ def render_accuracy_evolution(attempts: list[dict]) -> None:
         st.caption("Todavía no hay datos suficientes para construir la evolución.")
         return
 
-    cumulative_data = trend.dropna(subset=["Precisión acumulada"])
-    daily_data = trend.dropna(subset=["Precisión diaria"])
-    cumulative_long = cumulative_data.rename(columns={"Precisión acumulada": "Valor"})
-    daily_long = daily_data.rename(columns={"Precisión diaria": "Valor"})
-
-    cumulative_line = alt.Chart(cumulative_long).mark_line(
-        point=True,
-        strokeWidth=3,
-        color="#2f2f35",
-    ).encode(
-        x=alt.X("Fecha:T", title=None, axis=alt.Axis(format="%d %b", labelAngle=0)),
-        y=alt.Y("Valor:Q", title="Precisión (%)", scale=alt.Scale(domain=[0, 100])),
-        tooltip=[
-            alt.Tooltip("Fecha:T", title="Fecha", format="%d-%m-%Y"),
-            alt.Tooltip("Valor:Q", title="Precisión acumulada", format=".0f"),
-        ],
+    chart_data = (
+        trend[["Fecha", "Precisión acumulada", "Precisión diaria"]]
+        .set_index("Fecha")
+        .rename(
+            columns={
+                "Precisión acumulada": "Acumulada",
+                "Precisión diaria": "Del día",
+            }
+        )
     )
-
-    daily_points = alt.Chart(daily_long).mark_line(
-        point=True,
-        strokeWidth=2,
-        strokeDash=[5, 4],
-        color="#92929b",
-    ).encode(
-        x=alt.X("Fecha:T", title=None, axis=alt.Axis(format="%d %b", labelAngle=0)),
-        y=alt.Y("Valor:Q", title="Precisión (%)", scale=alt.Scale(domain=[0, 100])),
-        tooltip=[
-            alt.Tooltip("Fecha:T", title="Fecha", format="%d-%m-%Y"),
-            alt.Tooltip("Valor:Q", title="Precisión diaria", format=".0f"),
-            alt.Tooltip("Respuestas:Q", title="Respuestas"),
-        ],
-    )
-
-    chart = (cumulative_line + daily_points).properties(height=280)
-    st.altair_chart(chart, use_container_width=True)
+    st.line_chart(chart_data, height=280)
     st.caption(
-        "Línea continua: precisión acumulada. Línea segmentada: precisión de cada día con actividad."
+        "Acumulada: precisión histórica. Del día: precisión obtenida en cada fecha con actividad."
     )
 
 

@@ -6,6 +6,6 @@ OFFICIAL_BOOK_PATH = ROOT / "docs" / "Libro_oficial_CONASET_Clase_B_2024.pdf"
 ICON_PATH = ROOT / "assets" / "cplus_icon.png"
 
 APP_NAME = "Conduce+"
-APP_VERSION = "0.3.0"
+APP_VERSION = "0.3.1"
 TIMEZONE = "America/Santiago"
 DAILY_MIX = {"easy": 3, "medium": 4, "hard": 3}
