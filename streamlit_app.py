@@ -4,21 +4,25 @@ import html
 import time
 from collections import defaultdict
 from datetime import timedelta
-from pathlib import Path
-
 import pandas as pd
 import streamlit as st
 
 from app.config import APP_NAME, APP_VERSION, DAILY_MIX, OFFICIAL_BOOK_PATH
 from app.data import load_questions, question_map
 from app.database import (
+    DatabaseConfigurationError,
+    DatabaseError,
+    DatabaseUnavailableError,
+    ProfileAlreadyExistsError,
+    authenticate_profile,
+    create_profile,
     create_session,
     get_attempts_for_session,
     get_daily_session,
     get_session,
     get_user_attempts,
     get_user_sessions,
-    init_db,
+    healthcheck,
     mark_completed,
     save_attempt,
 )
@@ -43,7 +47,6 @@ st.set_page_config(
 )
 
 inject_css()
-init_db()
 QUESTIONS = load_questions()
 QUESTIONS_BY_ID = question_map()
 
@@ -69,16 +72,17 @@ def prepare_navigation() -> str:
     )
 
 
-def create_new_session(user_name: str, mode: str) -> str:
-    attempts = get_user_attempts(user_name)
+def create_new_session(profile: dict, mode: str) -> str:
+    profile_id = profile["id"]
+    attempts = get_user_attempts(profile_id)
     date_key = local_date_key()
     if mode == "daily":
-        seed = stable_seed(user_name.lower(), date_key, "daily")
+        seed = stable_seed(profile_id, date_key, "daily")
     else:
-        seed = stable_seed(user_name.lower(), str(time.time_ns()), "practice")
+        seed = stable_seed(profile_id, str(time.time_ns()), "practice")
     question_ids = select_questions(QUESTIONS, attempts, seed=seed, mix=DAILY_MIX)
     session_id = create_session(
-        user_name=user_name,
+        profile_id=profile_id,
         mode=mode,
         date_key=date_key,
         question_ids=question_ids,
@@ -89,12 +93,12 @@ def create_new_session(user_name: str, mode: str) -> str:
     return session_id
 
 
-def get_or_create_daily(user_name: str) -> str:
-    existing = get_daily_session(user_name, local_date_key())
+def get_or_create_daily(profile: dict) -> str:
+    existing = get_daily_session(profile["id"], local_date_key())
     if existing:
         st.session_state["active_session_id"] = existing["id"]
         return existing["id"]
-    return create_new_session(user_name, "daily")
+    return create_new_session(profile, "daily")
 
 
 def session_progress(session: dict, attempts: list[dict]) -> tuple[int, int]:
@@ -111,39 +115,116 @@ def first_unanswered(session: dict, attempts: list[dict]) -> str | None:
     return None
 
 
+def _valid_pin(pin: str) -> bool:
+    return pin.isdigit() and len(pin) == 6
+
+
+def _start_profile_session(profile: dict) -> None:
+    st.session_state["profile"] = {
+        "id": str(profile["id"]),
+        "display_name": str(profile["display_name"]),
+    }
+    st.session_state["pending_nav"] = "Inicio"
+    st.session_state.pop("active_session_id", None)
+    st.rerun()
+
+
 def render_login() -> None:
     brand()
     st.markdown(
         """
         <div class="cp-hero">
           <h1>Aprende a conducir con criterio</h1>
-          <p>Desafíos breves, explicaciones claras y contenido trazable al libro oficial de CONASET.</p>
+          <p>Tu avance queda guardado en la nube y puedes retomarlo desde cualquier dispositivo.</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    with st.form("login_form"):
-        name = st.text_input("¿Cómo te llamas?", placeholder="Ejemplo: Valentina", max_chars=40)
-        submitted = st.form_submit_button("Entrar a Conduce+", type="primary", use_container_width=True)
-    if submitted:
-        normalized = clean_name(name)
-        if len(normalized) < 2:
-            st.error("Escribe un nombre de al menos 2 caracteres.")
-        else:
-            st.session_state["user_name"] = normalized
-            st.session_state["pending_nav"] = "Inicio"
-            st.rerun()
-    st.caption("MVP personal: el nombre identifica tu progreso en esta instalación.")
+
+    login_tab, register_tab = st.tabs(["Entrar", "Crear perfil"])
+
+    with login_tab:
+        with st.form("login_form"):
+            name = st.text_input(
+                "Nombre de usuario",
+                placeholder="Ejemplo: Valentina",
+                max_chars=40,
+                key="login_name",
+            )
+            pin = st.text_input(
+                "Clave de 6 dígitos",
+                type="password",
+                max_chars=6,
+                key="login_pin",
+            )
+            submitted = st.form_submit_button(
+                "Entrar a Conduce+", type="primary", use_container_width=True
+            )
+        if submitted:
+            normalized = clean_name(name)
+            if len(normalized) < 2 or not _valid_pin(pin):
+                st.error("Escribe tu usuario y una clave numérica de 6 dígitos.")
+            else:
+                profile = authenticate_profile(normalized, pin)
+                if profile:
+                    _start_profile_session(profile)
+                else:
+                    st.error("Usuario o clave incorrectos.")
+
+    with register_tab:
+        st.caption("El nombre será tu identificador para recuperar el progreso.")
+        with st.form("register_form"):
+            new_name = st.text_input(
+                "Elige un nombre de usuario",
+                placeholder="Ejemplo: Valentina",
+                max_chars=40,
+                key="register_name",
+            )
+            new_pin = st.text_input(
+                "Crea una clave de 6 dígitos",
+                type="password",
+                max_chars=6,
+                key="register_pin",
+            )
+            confirm_pin = st.text_input(
+                "Repite la clave",
+                type="password",
+                max_chars=6,
+                key="register_pin_confirm",
+            )
+            registered = st.form_submit_button(
+                "Crear perfil", type="primary", use_container_width=True
+            )
+        if registered:
+            normalized = clean_name(new_name)
+            if len(normalized) < 2:
+                st.error("El nombre debe tener al menos 2 caracteres.")
+            elif not _valid_pin(new_pin):
+                st.error("La clave debe contener exactamente 6 números.")
+            elif new_pin != confirm_pin:
+                st.error("Las claves no coinciden.")
+            else:
+                try:
+                    profile = create_profile(normalized, new_pin)
+                except ProfileAlreadyExistsError as exc:
+                    st.error(str(exc))
+                else:
+                    st.success("Perfil creado. Tu progreso ya está protegido en Supabase.")
+                    _start_profile_session(profile)
+
+    st.caption("No compartas tu clave. Conduce+ nunca la guarda en texto legible.")
 
 
-def render_home(user_name: str) -> None:
+def render_home(profile: dict) -> None:
+    profile_id = profile["id"]
+    user_name = profile["display_name"]
     safe_name = html.escape(user_name)
-    attempts = get_user_attempts(user_name)
-    sessions = get_user_sessions(user_name)
+    attempts = get_user_attempts(profile_id)
+    sessions = get_user_sessions(profile_id)
     streak = calculate_streak(sessions)
     xp = xp_from_data(attempts, sessions)
     level = xp // 200 + 1
-    daily = get_daily_session(user_name, local_date_key())
+    daily = get_daily_session(profile_id, local_date_key())
     daily_attempts = get_attempts_for_session(daily["id"]) if daily else []
     daily_done = bool(daily and daily["status"] == "completed")
 
@@ -174,7 +255,7 @@ def render_home(user_name: str) -> None:
             st.session_state["active_session_id"] = daily["id"]
             go_to("Desafío")
         if col2.button("Práctica nueva", use_container_width=True):
-            create_new_session(user_name, "practice")
+            create_new_session(profile, "practice")
             go_to("Desafío")
     else:
         answered = len(daily_attempts)
@@ -186,14 +267,14 @@ def render_home(user_name: str) -> None:
         )
         st.progress(answered / 10 if answered else 0.0)
         if st.button(title, type="primary", use_container_width=True):
-            get_or_create_daily(user_name)
+            get_or_create_daily(profile)
             go_to("Desafío")
 
     st.markdown("### Tu entrenamiento")
     col1, col2 = st.columns(2)
     with col1:
         if st.button("⚡ Práctica rápida", use_container_width=True):
-            create_new_session(user_name, "practice")
+            create_new_session(profile, "practice")
             go_to("Desafío")
     with col2:
         if st.button("📈 Ver progreso", use_container_width=True):
@@ -214,14 +295,15 @@ def render_home(user_name: str) -> None:
         )
 
 
-def render_quiz(user_name: str) -> None:
+def render_quiz(profile: dict) -> None:
+    profile_id = profile["id"]
     session_id = st.session_state.get("active_session_id")
     session = get_session(session_id) if session_id else None
     if not session:
-        session_id = get_or_create_daily(user_name)
+        session_id = get_or_create_daily(profile)
         session = get_session(session_id)
 
-    if session["user_name"] != user_name:
+    if str(session["profile_id"]) != profile_id:
         st.session_state.pop("active_session_id", None)
         st.error("La sesión activa no corresponde al usuario actual.")
         return
@@ -258,7 +340,7 @@ def render_quiz(user_name: str) -> None:
         if session["status"] != "completed":
             mark_completed(session["id"], now_local().isoformat())
             session = get_session(session["id"])
-        render_results(user_name, session, attempts)
+        render_results(profile, session, attempts)
         return
 
     question = QUESTIONS_BY_ID[qid]
@@ -285,7 +367,7 @@ def render_quiz(user_name: str) -> None:
         elapsed_ms = int((time.monotonic() - st.session_state[start_key]) * 1000)
         inserted = save_attempt(
             session_id=session["id"],
-            user_name=user_name,
+            profile_id=profile_id,
             question_id=qid,
             topic=question["topic"],
             difficulty=question["difficulty"],
@@ -301,7 +383,7 @@ def render_quiz(user_name: str) -> None:
     st.caption("Tu respuesta se guarda al confirmar. No se puede modificar después.")
 
 
-def render_results(user_name: str, session: dict, attempts: list[dict]) -> None:
+def render_results(profile: dict, session: dict, attempts: list[dict]) -> None:
     summary = build_session_summary(attempts, QUESTIONS_BY_ID)
     accuracy = summary["accuracy"]
     if accuracy >= 80:
@@ -354,15 +436,16 @@ def render_results(user_name: str, session: dict, attempts: list[dict]) -> None:
 
     col1, col2 = st.columns(2)
     if col1.button("Nueva práctica", type="primary", use_container_width=True):
-        create_new_session(user_name, "practice")
+        create_new_session(profile, "practice")
         st.rerun()
     if col2.button("Ver progreso", use_container_width=True):
         go_to("Progreso")
 
 
-def render_progress(user_name: str) -> None:
-    attempts = get_user_attempts(user_name)
-    sessions = get_user_sessions(user_name)
+def render_progress(profile: dict) -> None:
+    profile_id = profile["id"]
+    attempts = get_user_attempts(profile_id)
+    sessions = get_user_sessions(profile_id)
     if not attempts:
         card(
             "<div class='cp-kicker'>Progreso</div>"
@@ -370,7 +453,7 @@ def render_progress(user_name: str) -> None:
             "<p class='cp-muted'>Completa tu primer desafío para activar estadísticas y recomendaciones.</p>",
         )
         if st.button("Comenzar ahora", type="primary", use_container_width=True):
-            get_or_create_daily(user_name)
+            get_or_create_daily(profile)
             go_to("Desafío")
         return
 
@@ -501,28 +584,74 @@ def render_source() -> None:
     st.caption(f"Conduce+ v{APP_VERSION} · Banco inicial sujeto a ampliación y revisión editorial.")
 
 
-# ---- App shell ----
-if "user_name" not in st.session_state:
-    render_login()
-    st.stop()
+def render_configuration_error(error: Exception) -> None:
+    brand()
+    st.error(str(error))
+    st.markdown("### Configuración necesaria")
+    st.markdown(
+        """
+1. Ejecuta `supabase/schema.sql` en el **SQL Editor** de tu proyecto Supabase.
+2. En Streamlit Cloud abre **App settings → Secrets**.
+3. Pega tus credenciales con este formato:
+        """
+    )
+    st.code(
+        '[supabase]\nurl = "https://TU-PROYECTO.supabase.co"\nsecret_key = "sb_secret_REEMPLAZAR"',
+        language="toml",
+    )
+    st.warning("Nunca subas la Secret key a GitHub.")
 
-user_name = st.session_state["user_name"]
-brand()
-nav = prepare_navigation()
 
-if nav == "Inicio":
-    render_home(user_name)
-elif nav == "Desafío":
-    render_quiz(user_name)
-elif nav == "Progreso":
-    render_progress(user_name)
-elif nav == "Fuente":
-    render_source()
+def render_database_error(error: Exception) -> None:
+    brand()
+    st.error(str(error))
+    st.info(
+        "La aplicación detuvo la operación para evitar perder o duplicar progreso. "
+        "Cuando Supabase vuelva a responder, presiona el botón y continúa."
+    )
+    if st.button("Reintentar conexión", type="primary", use_container_width=True):
+        st.rerun()
 
-st.markdown("---")
-col1, col2 = st.columns([3, 1])
-col1.caption(f"Usuario: {user_name} · Conduce+ v{APP_VERSION}")
-if col2.button("Cambiar usuario", use_container_width=True):
-    for key in ["user_name", "active_session_id", "feedback_question_id"]:
-        st.session_state.pop(key, None)
+
+def logout() -> None:
+    st.session_state.clear()
     st.rerun()
+
+
+def main() -> None:
+    healthcheck()
+
+    if "profile" not in st.session_state:
+        render_login()
+        return
+
+    profile = st.session_state["profile"]
+    with st.sidebar:
+        st.caption(f"Sesión: {profile['display_name']}")
+        if st.button("Cerrar sesión", use_container_width=True):
+            logout()
+
+    brand()
+    nav = prepare_navigation()
+
+    if nav == "Inicio":
+        render_home(profile)
+    elif nav == "Desafío":
+        render_quiz(profile)
+    elif nav == "Progreso":
+        render_progress(profile)
+    elif nav == "Fuente":
+        render_source()
+
+    st.markdown("---")
+    st.caption(f"Conduce+ v{APP_VERSION} · Progreso sincronizado con Supabase")
+
+
+try:
+    main()
+except DatabaseConfigurationError as exc:
+    render_configuration_error(exc)
+except DatabaseUnavailableError as exc:
+    render_database_error(exc)
+except DatabaseError as exc:
+    render_database_error(exc)

@@ -1,65 +1,119 @@
-# Conduce+ — MVP Streamlit
+# Conduce+ v0.2 — Streamlit + Supabase
 
-Plataforma móvil de aprendizaje para preparar la Licencia de Conducir Clase B en Chile mediante preguntas situacionales, retroalimentación pedagógica y adaptación básica por temas débiles.
+Plataforma mobile-first para preparar la Licencia de Conducir Clase B en Chile mediante preguntas situacionales, retroalimentación pedagógica y adaptación básica por temas débiles.
 
-## Qué incluye
+## Qué cambia en esta versión
 
-- Diseño mobile-first optimizado para iPhone.
+- Persistencia remota en **Supabase/PostgreSQL**.
+- El progreso no depende del disco temporal de Streamlit Cloud.
+- Perfiles protegidos con nombre de usuario y clave numérica de 6 dígitos.
+- Las claves se almacenan con PBKDF2-SHA256 y salt aleatorio; nunca en texto legible.
+- Una única sesión diaria por perfil y fecha, incluso si se abren varias pestañas.
+- Respuestas idempotentes: un doble toque no duplica registros.
+- Reintentos automáticos ante fallas transitorias de red.
+- Restricciones y claves foráneas para proteger la integridad de los datos.
+- Pantalla de diagnóstico cuando faltan secretos, tablas o conexión.
+
+## Contenido actual
+
+- Diseño optimizado para iPhone y compatible con computador.
 - Desafío diario de 10 preguntas: 3 fáciles, 4 medias y 3 difíciles.
 - Prácticas nuevas ilimitadas.
 - Banco inicial de 42 preguntas trazables al **Libro para la Conducción en Chile, CONASET 2024**.
 - Explicación, consejo práctico y referencia de página después de cada respuesta.
-- Algoritmo adaptativo que aumenta el peso de los temas con menor precisión.
+- Algoritmo adaptativo según temas débiles.
 - Precisión general y por tema, evolución, racha, XP y logros.
-- Guardado automático en SQLite.
 
-## Subir a GitHub
+## Instalación rápida
 
-1. Crea un repositorio nuevo en GitHub.
-2. Sube **todo el contenido de esta carpeta** a la raíz del repositorio.
-3. Confirma que `streamlit_app.py` y `requirements.txt` queden visibles en la raíz.
+### 1. Crear el proyecto Supabase
 
-## Publicar en Streamlit Community Cloud
+Crea un proyecto en Supabase y espera a que quede activo.
 
-1. Entra a Streamlit Community Cloud.
-2. Pulsa **Create app**.
-3. Selecciona tu repositorio y la rama `main`.
-4. En **Main file path**, usa:
+### 2. Crear las tablas
+
+En Supabase abre **SQL Editor → New query**, copia todo el archivo:
+
+```text
+supabase/schema.sql
+```
+
+y presiona **Run**.
+
+### 3. Obtener las credenciales
+
+En Supabase abre **Project Settings → API Keys** y copia:
+
+- Project URL.
+- Una **Secret key** de servidor, normalmente comienza con `sb_secret_`.
+
+También funciona temporalmente la clave heredada `service_role`, pero se recomienda la nueva Secret key.
+
+### 4. Configurar Streamlit Cloud
+
+En la aplicación desplegada abre:
+
+```text
+App settings → Secrets
+```
+
+Pega:
+
+```toml
+[supabase]
+url = "https://TU-PROYECTO.supabase.co"
+secret_key = "sb_secret_REEMPLAZAR"
+```
+
+Guarda los cambios y reinicia la app.
+
+> Nunca subas la Secret key a GitHub. El repositorio ya ignora `.streamlit/secrets.toml`.
+
+### 5. Subir a GitHub y desplegar
+
+Sube todo el contenido de esta carpeta a la raíz del repositorio. En Streamlit Community Cloud usa:
 
 ```text
 streamlit_app.py
 ```
 
-5. Pulsa **Deploy**.
-
-No requiere secrets ni configuración adicional para iniciar.
+como **Main file path**.
 
 ## Ejecutar localmente
 
 ```bash
 python -m venv .venv
+
 # Windows
 .venv\Scripts\activate
+
 # macOS/Linux
 source .venv/bin/activate
 
 pip install -r requirements.txt
+```
+
+Copia el ejemplo de secretos:
+
+```bash
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+```
+
+Completa la URL y la Secret key, luego ejecuta:
+
+```bash
 streamlit run streamlit_app.py
 ```
 
-## Importante sobre persistencia
+## Seguridad
 
-El MVP usa SQLite para funcionar de inmediato. En Streamlit Community Cloud, los datos escritos en disco pueden perderse cuando la aplicación se reinicia o vuelve a desplegarse. Para uso público o persistencia garantizada, la siguiente versión debe conectar los repositorios a Supabase/PostgreSQL.
+La aplicación usa la Secret key únicamente en el backend Python de Streamlit. Las tablas tienen Row Level Security habilitado y no poseen políticas públicas para `anon` ni `authenticated`.
 
-## Fuente de contenido
+Este sistema es adecuado para el MVP familiar. Antes de una apertura masiva conviene migrar el ingreso a Supabase Auth con correo, recuperación de contraseña, rate limiting y auditoría.
 
-El contenido se construyó exclusivamente a partir del archivo incluido en:
+## Respaldo
 
-```text
-docs/Libro_oficial_CONASET_Clase_B_2024.pdf
-```
-
-Cada pregunta contiene documento, capítulo, sección y página. Este MVP entrena comprensión del material oficial; no afirma reproducir las preguntas exactas del examen municipal.
+Supabase evita que el progreso desaparezca al reiniciarse Streamlit, pero ningún servicio puede prometer disponibilidad absoluta. Para datos importantes, activa respaldos en Supabase según el plan utilizado y exporta periódicamente las tablas.
 
 ## Estructura
 
@@ -75,8 +129,20 @@ data/
   questions.json
 docs/
   Libro_oficial_CONASET_Clase_B_2024.pdf
-tests/
-  test_questions.py
+supabase/
+  schema.sql
 .streamlit/
   config.toml
+  secrets.toml.example
+tests/
 ```
+
+## Fuente oficial
+
+El contenido se construyó exclusivamente a partir del documento incluido en:
+
+```text
+docs/Libro_oficial_CONASET_Clase_B_2024.pdf
+```
+
+Cada pregunta contiene documento, capítulo, sección y página. La aplicación entrena comprensión del material oficial; no afirma reproducir las preguntas exactas del examen municipal.
