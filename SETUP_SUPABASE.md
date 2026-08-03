@@ -1,29 +1,12 @@
-# Configuración de Supabase — guía directa
+# Configuración de Supabase
 
-## A. Crear base de datos
+## Instalación nueva
 
-1. Entra a Supabase y crea un proyecto.
-2. Abre **SQL Editor**.
-3. Presiona **New query**.
-4. Abre en este repositorio `supabase/schema.sql`.
-5. Copia todo, pégalo en el editor y presiona **Run**.
-6. En **Table Editor** deben aparecer:
-   - `profiles`
-   - `quiz_sessions`
-   - `attempts`
-
-## B. Copiar las credenciales correctas
-
-1. Abre **Project Settings → API Keys**.
-2. Copia la **Project URL**.
-3. Copia una **Secret key** de servidor (`sb_secret_...`).
-4. No uses la `publishable key`.
-
-## C. Guardarlas en Streamlit
-
-1. En Streamlit Community Cloud abre la app.
-2. Entra a **App settings → Secrets**.
-3. Pega:
+1. Crea un proyecto en Supabase.
+2. Abre **SQL Editor → New query**.
+3. Copia todo el archivo `supabase/schema.sql` y presiona **Run**.
+4. En **Project Settings → API Keys**, copia la Project URL y una Secret key de servidor.
+5. En Streamlit Community Cloud abre **App settings → Secrets** y pega:
 
 ```toml
 [supabase]
@@ -31,30 +14,36 @@ url = "https://TU-PROYECTO.supabase.co"
 secret_key = "sb_secret_REEMPLAZAR"
 ```
 
-4. Guarda y reinicia.
+6. Reinicia la app.
 
-## D. Prueba mínima
+La aplicación crea o reutiliza automáticamente un único perfil interno. No hay registro, inicio de sesión ni contraseña visible.
 
-1. Abre la app.
-2. Crea un perfil.
-3. Responde una pregunta.
-4. Cierra sesión.
-5. Vuelve a entrar desde otro navegador con el mismo usuario y clave.
-6. La respuesta y el avance deben seguir disponibles.
+## Actualización desde una versión anterior
 
-## Errores típicos
+- Reemplaza los archivos del repositorio.
+- Mantén los mismos Secrets.
+- No borres las tablas.
+- No vuelvas a ejecutar el esquema salvo que estés creando un proyecto nuevo.
+- La versión 0.3 prioriza el perfil interno existente y conserva su historial.
 
-### “Faltan las credenciales”
-Los secretos no fueron guardados o el bloque TOML está mal escrito.
+## Prueba mínima
 
-### “Se configuró una publishable key”
-Copiaste la clave pública. Debes usar una Secret key de servidor.
+1. Abre la aplicación.
+2. Responde una pregunta.
+3. Cierra la pestaña.
+4. Abre nuevamente el enlace.
+5. La sesión debe continuar desde el mismo punto.
 
-### “Faltan las tablas”
-No ejecutaste `supabase/schema.sql`, o lo ejecutaste en otro proyecto.
+## Errores frecuentes
 
-### La app no conecta después de guardar Secrets
-Reinicia la aplicación desde Streamlit Cloud. Verifica que la URL corresponda al mismo proyecto que la Secret key.
+### Faltan las credenciales
+Revisa el bloque `[supabase]` en los Secrets de Streamlit.
 
-### No aparece el progreso
-Confirma que ingresaste exactamente al mismo perfil. Los nombres no distinguen mayúsculas ni tildes, pero sí palabras diferentes.
+### Se configuró una publishable key
+La app necesita una Secret key de servidor.
+
+### Faltan las tablas
+Ejecuta `supabase/schema.sql` en el mismo proyecto al que apuntan los Secrets.
+
+### El progreso no aparece
+Confirma que la URL y la Secret key correspondan al mismo proyecto de Supabase usado anteriormente.

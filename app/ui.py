@@ -285,11 +285,36 @@ def inject_css() -> None:
           background: linear-gradient(90deg, #2c2c33 0%, #5b5b66 100%);
         }
 
-        .cp-calendar {
+        .cp-calendar-title {
+          min-height:46px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          color:var(--cp-ink);
+          font-weight:820;
+          text-align:center;
+        }
+
+        .cp-calendar-grid {
           display:grid;
-          grid-template-columns:repeat(7,1fr);
-          gap:.35rem;
-          margin-top:.5rem;
+          grid-template-columns:repeat(7, minmax(0, 1fr));
+          gap:.34rem;
+          margin-top:.65rem;
+          background:var(--cp-surface);
+          border:1px solid var(--cp-border);
+          border-radius:18px;
+          padding:.75rem;
+          box-shadow:var(--cp-shadow);
+        }
+
+        .cp-weekday {
+          display:grid;
+          place-items:center;
+          min-height:28px;
+          color:var(--cp-muted);
+          font-size:.72rem;
+          font-weight:800;
+          text-transform:uppercase;
         }
 
         .cp-day {
@@ -297,9 +322,20 @@ def inject_css() -> None:
           border-radius:10px;
           display:grid;
           place-items:center;
-          font-size:.72rem;
+          font-size:.76rem;
           font-weight:800;
-          border: 1px solid var(--cp-border);
+          border:1px solid var(--cp-border);
+          position:relative;
+        }
+
+        .cp-day.blank {
+          background:transparent;
+          border-color:transparent;
+        }
+
+        .cp-day.empty {
+          background:#f2f2f4;
+          color:#74747d;
         }
 
         .cp-day.done {
@@ -308,10 +344,55 @@ def inject_css() -> None:
           border-color:#2f2f35;
         }
 
-        .cp-day.empty {
-          background:#efeff1;
-          color:#6b6b73;
+        .cp-day.started {
+          background:#d7d7dc;
+          color:#202025;
+          border-color:#a6a6ae;
         }
+
+        .cp-day.practice {
+          background:#ffffff;
+          color:#2f2f35;
+          border:2px solid #6e6e77;
+        }
+
+        .cp-day.today::after {
+          content:"";
+          position:absolute;
+          width:5px;
+          height:5px;
+          border-radius:50%;
+          bottom:4px;
+          background:currentColor;
+        }
+
+        .cp-calendar-legend {
+          display:flex;
+          flex-wrap:wrap;
+          gap:.65rem 1rem;
+          margin:.7rem 0 .2rem;
+          color:var(--cp-muted);
+          font-size:.78rem;
+        }
+
+        .cp-calendar-legend span {
+          display:inline-flex;
+          align-items:center;
+          gap:.38rem;
+          color:var(--cp-muted);
+        }
+
+        .legend-box {
+          width:11px;
+          height:11px;
+          border-radius:3px;
+          display:inline-block;
+          border:1px solid var(--cp-border-strong);
+        }
+
+        .legend-box.done { background:#2f2f35; border-color:#2f2f35; }
+        .legend-box.started { background:#d7d7dc; border-color:#a6a6ae; }
+        .legend-box.practice { background:#ffffff; border:2px solid #6e6e77; }
 
         .st-emotion-cache-1wmy9hl, .st-emotion-cache-ue6h4q, .st-emotion-cache-16txtl3 {
           color: var(--cp-ink);
@@ -372,14 +453,23 @@ def question_header(question: dict[str, Any], current: int, total: int) -> None:
     )
 
 
-def feedback_panel(question: dict[str, Any], selected_id: str) -> None:
+def feedback_panel(
+    question: dict[str, Any],
+    selected_id: str,
+    *,
+    displayed_options: list[dict[str, Any]] | None = None,
+) -> None:
     is_correct = selected_id == question["correct_id"]
     selected = next(o for o in question["options"] if o["id"] == selected_id)
     correct = next(o for o in question["options"] if o["id"] == question["correct_id"])
     source = question["source"]
 
     if is_correct:
-        card("<div class='cp-kicker'>Resultado</div><div class='cp-title'>Respuesta correcta. Elegiste la alternativa más segura.</div>", "cp-good")
+        card(
+            "<div class='cp-kicker'>Resultado</div>"
+            "<div class='cp-title'>Respuesta correcta. Elegiste la alternativa más segura.</div>",
+            "cp-good",
+        )
     else:
         card(
             "<div class='cp-kicker'>Resultado</div>"
@@ -405,8 +495,25 @@ def feedback_panel(question: dict[str, Any], selected_id: str) -> None:
         "cp-source",
     )
 
+    if displayed_options is None:
+        displayed_options = [
+            {
+                "display_id": chr(ord("A") + index),
+                "option_id": option["id"],
+                "text": option["text"],
+                "feedback": option["feedback"],
+            }
+            for index, option in enumerate(question["options"])
+        ]
+
     with st.expander("Revisar todas las alternativas"):
-        for option in question["options"]:
-            marker = "Correcta" if option["id"] == question["correct_id"] else "Alternativa"
-            st.markdown(f"**{marker}: {option['text']}**")
+        for option in displayed_options:
+            status = (
+                "Respuesta correcta"
+                if option["option_id"] == question["correct_id"]
+                else "Por qué no"
+            )
+            st.markdown(
+                f"**{html.escape(option['display_id'])}. {html.escape(option['text'])} — {status}**"
+            )
             st.caption(option["feedback"])

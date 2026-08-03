@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import random
 from collections import Counter, defaultdict
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from typing import Any
 from zoneinfo import ZoneInfo
 
@@ -80,6 +80,21 @@ def ordered_options(question: dict[str, Any], session_id: str) -> list[dict[str,
     return options
 
 
+def displayed_options(question: dict[str, Any], session_id: str) -> list[dict[str, Any]]:
+    """Shuffle alternatives stably while relabeling them A-D in display order."""
+    rows: list[dict[str, Any]] = []
+    for index, option in enumerate(ordered_options(question, session_id)):
+        rows.append(
+            {
+                "display_id": chr(ord("A") + index),
+                "option_id": option["id"],
+                "text": option["text"],
+                "feedback": option["feedback"],
+            }
+        )
+    return rows
+
+
 def build_session_summary(
     attempts: list[dict[str, Any]],
     questions_by_id: dict[str, dict[str, Any]],
@@ -91,7 +106,8 @@ def build_session_summary(
 
     topic_data: dict[str, dict[str, int]] = defaultdict(lambda: {"correct": 0, "total": 0})
     for attempt in attempts:
-        topic = questions_by_id[attempt["question_id"]]["topic"]
+        question = questions_by_id.get(str(attempt["question_id"]))
+        topic = question["topic"] if question else str(attempt.get("topic", "Contenido anterior"))
         topic_data[topic]["total"] += 1
         topic_data[topic]["correct"] += int(attempt["is_correct"])
 

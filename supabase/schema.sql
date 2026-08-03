@@ -1,4 +1,4 @@
--- Conduce+ v0.2 — Esquema persistente en Supabase/PostgreSQL
+-- Conduce+ v0.3 — Esquema persistente en Supabase/PostgreSQL
 -- Ejecutar una sola vez en Supabase > SQL Editor > New query.
 
 create extension if not exists pgcrypto;

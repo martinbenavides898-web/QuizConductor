@@ -1,3 +1,8 @@
+import pytest
+
+pytest.importorskip("streamlit")
+pytest.importorskip("supabase")
+
 from app.database import hash_pin, normalize_name, verify_pin
 
 

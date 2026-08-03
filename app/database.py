@@ -7,7 +7,6 @@ import secrets
 import time
 import unicodedata
 import uuid
-from functools import lru_cache
 from typing import Any, Callable, TypeVar
 
 import streamlit as st
@@ -197,7 +196,7 @@ def create_profile(display_name: str, pin: str) -> dict[str, Any]:
     except Exception as exc:
         if _is_unique_violation(exc):
             raise ProfileAlreadyExistsError(
-                "Ese nombre de usuario ya existe. Elige otro o entra con su clave."
+                "El perfil interno ya existe."
             ) from exc
         if isinstance(exc, DatabaseError):
             raise
@@ -234,6 +233,7 @@ def authenticate_profile(display_name: str, pin: str) -> dict[str, Any] | None:
 
 
 def get_or_create_single_profile(display_name: str = "Perfil principal") -> dict[str, Any]:
+    """Reuse the dedicated single profile and preserve progress across upgrades."""
     name_key = normalize_name(display_name)
     response = _run(
         lambda: (
@@ -248,6 +248,23 @@ def get_or_create_single_profile(display_name: str = "Perfil principal") -> dict
     rows = response.data or []
     if rows:
         return rows[0]
+
+    # Migration path from the earlier multi-profile version: reuse the most
+    # recently created profile instead of hiding its existing progress.
+    response = _run(
+        lambda: (
+            get_client()
+            .table("profiles")
+            .select("id,display_name,name_key,created_at")
+            .order("created_at", desc=True)
+            .limit(1)
+            .execute()
+        )
+    )
+    rows = response.data or []
+    if rows:
+        return rows[0]
+
     try:
         return create_profile(display_name, "000000")
     except ProfileAlreadyExistsError:
@@ -265,6 +282,7 @@ def get_or_create_single_profile(display_name: str = "Perfil principal") -> dict
         if rows:
             return rows[0]
         raise DatabaseUnavailableError("No se pudo inicializar el perfil principal.")
+
 
 def create_session(
     profile_id: str,
