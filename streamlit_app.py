@@ -41,7 +41,7 @@ from app.ui import brand, card, feedback_panel, inject_css, question_header
 
 st.set_page_config(
     page_title=f"{APP_NAME} · Licencia Clase B",
-    page_icon="🚘",
+    page_icon=None,
     layout="centered",
     initial_sidebar_state="collapsed",
 )
@@ -231,7 +231,7 @@ def render_home(profile: dict) -> None:
     st.markdown(
         f"""
         <div class="cp-hero">
-          <h1>Hola, {safe_name} 👋</h1>
+          <h1>Hola, {safe_name}</h1>
           <p>Hoy entrenaremos decisiones seguras, no respuestas de memoria.</p>
         </div>
         """,
@@ -239,14 +239,14 @@ def render_home(profile: dict) -> None:
     )
 
     c1, c2, c3 = st.columns(3)
-    c1.metric("🔥 Racha", f"{streak} días")
-    c2.metric("⭐ Nivel", level)
+    c1.metric("Racha", f"{streak} días")
+    c2.metric("Nivel", level)
     c3.metric("XP", xp)
 
     if daily_done:
         card(
             "<div class='cp-kicker'>Desafío diario</div>"
-            "<div class='cp-title'>✅ Completado por hoy</div>"
+            "<div class='cp-title'>Completado por hoy</div>"
             "<p class='cp-muted'>Puedes revisar tu análisis o continuar con una práctica nueva.</p>",
             "cp-good",
         )
@@ -273,11 +273,11 @@ def render_home(profile: dict) -> None:
     st.markdown("### Tu entrenamiento")
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("⚡ Práctica rápida", use_container_width=True):
+        if st.button("Práctica rápida", use_container_width=True):
             create_new_session(profile, "practice")
             go_to("Desafío")
     with col2:
-        if st.button("📈 Ver progreso", use_container_width=True):
+        if st.button("Ver progreso", use_container_width=True):
             go_to("Progreso")
 
     if attempts:
@@ -387,7 +387,7 @@ def render_results(profile: dict, session: dict, attempts: list[dict]) -> None:
     summary = build_session_summary(attempts, QUESTIONS_BY_ID)
     accuracy = summary["accuracy"]
     if accuracy >= 80:
-        headline = "Muy buena jornada 🚘"
+        headline = "Muy buena jornada"
     elif accuracy >= 60:
         headline = "Buen avance, todavía hay que reforzar"
     else:
@@ -410,7 +410,7 @@ def render_results(profile: dict, session: dict, attempts: list[dict]) -> None:
     if summary["weakest"]:
         weak = summary["weakest"]
         card(
-            "<div class='cp-kicker'>📊 Análisis de tu conducción de hoy</div>"
+            "<div class='cp-kicker'>Análisis de tu sesión</div>"
             f"<div class='cp-title'>Tu principal refuerzo será: {weak['topic']}</div>"
             f"<p class='cp-muted'>Lograste {weak['correct']} de {weak['total']} en este tema. "
             "Los próximos desafíos aumentarán gradualmente su presencia sin abandonar el resto del temario.</p>",
@@ -419,7 +419,7 @@ def render_results(profile: dict, session: dict, attempts: list[dict]) -> None:
     if summary["strongest"] and summary["strongest"] != summary["weakest"]:
         strong = summary["strongest"]
         card(
-            "<div class='cp-kicker'>💪 Punto fuerte</div>"
+            "<div class='cp-kicker'>Punto fuerte</div>"
             f"<div class='cp-title'>{strong['topic']}</div>"
             f"<p class='cp-muted'>{strong['correct']} de {strong['total']} respuestas correctas.</p>",
             "cp-good",
@@ -468,7 +468,7 @@ def render_progress(profile: dict) -> None:
     c1.metric("Precisión general", f"{accuracy:.0f}%")
     c2.metric("Preguntas respondidas", len(attempts))
     c3, c4 = st.columns(2)
-    c3.metric("🔥 Racha actual", f"{streak} días")
+    c3.metric("Racha actual", f"{streak} días")
     c4.metric("Tiempo promedio", f"{avg_seconds:.0f} s")
 
     topic_rows = defaultdict(lambda: {"correct": 0, "total": 0})
@@ -544,8 +544,8 @@ def render_progress(profile: dict) -> None:
         ("Precisión segura", len(attempts) >= 20 and accuracy >= 80, "Supera 80% con 20 respuestas"),
     ]
     for title, unlocked, description in achievements:
-        icon = "🏆" if unlocked else "🔒"
-        st.markdown(f"{icon} **{title}** — {description}")
+        status = "Disponible" if unlocked else "Pendiente"
+        st.markdown(f"**{title}** — {description} ({status})")
 
     st.caption(f"Experiencia acumulada: {xp} XP · Nivel {xp // 200 + 1}")
 
